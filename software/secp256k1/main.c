@@ -1,4 +1,6 @@
 #define VERIFY
+#define SECP256K1_BUILD /* Prevent NULL checks from being optimized out and test failing */
+
 #include <stdint.h>
 #include "platform.h"
 
