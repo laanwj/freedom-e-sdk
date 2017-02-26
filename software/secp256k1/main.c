@@ -4455,8 +4455,10 @@ int main (void){
     run_sqrt();
 
     /* group tests */
+#if 0 /* DISABLED: memory hungry */
     printf("run_ge\n");
     run_ge();
+#endif
     printf("run_group_decompress\n");
     run_group_decompress();
 
