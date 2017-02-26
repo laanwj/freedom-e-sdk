@@ -4221,7 +4221,7 @@ void test_ecdsa_edge_cases(void) {
         CHECK(ecount == 5);
         secp256k1_context_set_illegal_callback(ctx, NULL, NULL);
     }
-
+#if 0 /* DISABLED: causes stack frame of >16000 bytes */
     /* Nonce function corner cases. */
     for (t = 0; t < 2; t++) {
         static const unsigned char zero[32] = {0x00};
@@ -4282,7 +4282,7 @@ void test_ecdsa_edge_cases(void) {
         }
         key[0] = 0;
     }
-
+#endif
     {
         /* Check that optional nonce arguments do not have equivalent effect. */
         const unsigned char zeros[32] = {0};
@@ -4509,10 +4509,8 @@ int main (void){
     run_ecdsa_sign_verify();
     printf("run_ecdsa_end_to_end\n");
     run_ecdsa_end_to_end();
-#if 0 /* DISABLED: causes trap */
     printf("run_ecdsa_edge_cases\n");
     run_ecdsa_edge_cases();
-#endif
 #ifdef ENABLE_OPENSSL_TESTS
     printf("run_ecdsa_openssl\n");
     run_ecdsa_openssl();
